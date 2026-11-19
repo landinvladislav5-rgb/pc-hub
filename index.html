@@ -1,1 +1,208 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>PC HUB | Gaming Control Center</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#ff253a;--bg:#090909;--panel:#141414;--muted:#888}
+body{font-family:Arial,sans-serif;background:var(--bg);color:#fff;min-height:100vh}
+header{height:70px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292020;background:#101010;position:sticky;top:0;z-index:5}
+.logo{font-size:23px;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--red)}
+.status{font-size:12px;color:#aaa}
+.status i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#39e878;margin-right:7px;box-shadow:0 0 10px #39e878}
+.layout{display:flex;min-height:calc(100vh - 70px)}
+aside{width:220px;padding:25px 14px;background:#101010;border-right:1px solid #292020}
+nav button{width:100%;padding:15px;margin-bottom:7px;background:transparent;color:#aaa;border:0;text-align:left;border-radius:9px;cursor:pointer;font-size:14px}
+nav button:hover,nav button.active{background:#301116;color:white;border-left:3px solid var(--red)}
+main{padding:30px;width:100%;max-width:1400px;margin:auto}
+h1{font-size:30px;margin-bottom:10px}
+.subtitle{color:var(--muted);margin-bottom:28px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:linear-gradient(145deg,#191919,#101010);border:1px solid #302020;border-radius:13px;padding:22px;min-width:0}
+.card h3{font-size:14px;color:#aaa;margin-bottom:17px}
+.big{font-size:29px;font-weight:800}
+.red{color:var(--red)}
+.small{font-size:12px;color:#777;margin-top:9px;line-height:1.5}
+.section{display:none}
+.section.active{display:block}
+.wide{grid-column:span 2}
+.action{background:var(--red);border:0;color:white;padding:12px 17px;border-radius:7px;font-weight:bold;cursor:pointer;margin-top:15px}
+.action:hover{background:#d9162b}
+.bar{height:7px;background:#292929;border-radius:10px;margin-top:12px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--red);transition:width .5s}
+.item{padding:15px 0;border-bottom:1px solid #292020;color:#ccc;font-size:14px}
+.item:last-child{border:0}
+.result{margin-top:15px;color:#aaa;font-size:13px;line-height:1.7}
+footer{color:#555;text-align:center;padding:35px;font-size:12px}
+@media(max-width:750px){
+.layout{display:block}
+aside{width:100%;padding:8px;border-right:0;border-bottom:1px solid #292020}
+nav{display:flex;overflow-x:auto;gap:5px}
+nav button{white-space:nowrap;width:auto;margin:0;padding:12px}
+main{padding:20px 14px}
+.grid{grid-template-columns:1fr}
+.wide{grid-column:span 1}
+h1{font-size:25px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">PC <span>HUB</span></div>
+<div class="status"><i></i> SYSTEM ONLINE</div>
+</header>
+
+<div class="layout">
+<aside>
+<nav>
+<button class="active" onclick="showPage('home',this)">⌂ Главная</button>
+<button onclick="showPage('monitor',this)">▣ Мониторинг</button>
+<button onclick="showPage('diagnostics',this)">⌕ Диагностика</button>
+<button onclick="showPage('optimization',this)">⚡ Оптимизация</button>
+<button onclick="showPage('gaming',this)">🎮 Gaming</button>
+<button onclick="showPage('about',this)">ⓘ О проекте</button>
+</nav>
+</aside>
+
+<main>
+<section id="home" class="section active">
+<h1>CONTROL CENTER</h1>
+<p class="subtitle">Добро пожаловать в PC HUB. Центр управления твоим компьютером.</p>
+<div class="grid">
+<div class="card">
+<h3>CPU LOAD</h3>
+<div class="big red">--</div>
+<div class="small">Данные датчика недоступны в браузере</div>
+</div>
+<div class="card">
+<h3>GPU LOAD</h3>
+<div class="big red">--</div>
+<div class="small">Требуется локальная программа</div>
+</div>
+<div class="card">
+<h3>RAM USAGE</h3>
+<div class="big red">--</div>
+<div class="small">Требуется локальная программа</div>
+</div>
+<div class="card wide">
+<h3>PC HUB SYSTEM</h3>
+<div class="big">READY <span class="red">●</span></div>
+<div class="small">Интерфейс запущен. Выбери нужный раздел в меню.</div>
+</div>
+<div class="card">
+<h3>VERSION</h3>
+<div class="big">1.0</div>
+<div class="small">PC HUB PROJECT</div>
+</div>
+</div>
+</section>
+
+<section id="monitor" class="section">
+<h1>МОНИТОРИНГ</h1>
+<p class="subtitle">Информация о состоянии системы.</p>
+<div class="grid">
+<div class="card"><h3>PROCESSOR</h3><div class="big red">--</div><p class="small">Температура и загрузка CPU недоступны через обычный браузер.</p></div>
+<div class="card"><h3>GRAPHICS CARD</h3><div class="big red">--</div><p class="small">Для показателей GPU понадобится локальная программа.</p></div>
+<div class="card"><h3>MEMORY</h3><div class="big red">--</div><p class="small">Данные оперативной памяти не предоставляются браузером.</p></div>
+</div>
+</section>
+
+<section id="diagnostics" class="section">
+<h1>ДИАГНОСТИКА</h1>
+<p class="subtitle">Проверка доступности основных функций браузера.</p>
+<div class="card">
+<div class="item">Интернет-соединение <span class="red" id="internet">ПРОВЕРКА</span></div>
+<div class="item">JavaScript <span class="red">АКТИВЕН</span></div>
+<div class="item">Размер экрана <span class="red" id="screenSize">--</span></div>
+<div class="item">Браузер <span class="red" id="browser">--</span></div>
+<button class="action" onclick="diagnose()">ЗАПУСТИТЬ ПРОВЕРКУ</button>
+<div class="result" id="diagnosticResult"></div>
+</div>
+</section>
+
+<section id="optimization" class="section">
+<h1>ОПТИМИЗАЦИЯ</h1>
+<p class="subtitle">Полезные рекомендации для обслуживания компьютера.</p>
+<div class="grid">
+<div class="card"><h3>STARTUP</h3><div class="big red">01</div><p class="small">Проверь автозагрузку и отключи ненужные приложения.</p></div>
+<div class="card"><h3>STORAGE</h3><div class="big red">02</div><p class="small">Освободи место на диске от ненужных файлов.</p></div>
+<div class="card"><h3>DRIVERS</h3><div class="big red">03</div><p class="small">Проверь обновления драйверов с официальных сайтов.</p></div>
+<div class="card wide"><h3>ВАЖНО</h3><p class="small">PC HUB пока не изменяет системные настройки автоматически. Перед удалением файлов или изменением параметров создавай резервные копии.</p></div>
+</div>
+</section>
+
+<section id="gaming" class="section">
+<h1>GAMING CENTER</h1>
+<p class="subtitle">Игровые инструменты и тесты.</p>
+<div class="grid">
+<div class="card">
+<h3>BROWSER FPS TEST</h3>
+<div class="big red" id="fps">--</div>
+<p class="small">Частота кадров анимации браузера, не FPS компьютерной игры.</p>
+<button class="action" onclick="startFPS()">ЗАПУСТИТЬ ТЕСТ</button>
+<div class="result" id="fpsResult"></div>
+</div>
+<div class="card">
+<h3>GAMING MODE</h3>
+<div class="big red">READY</div>
+<p class="small">Закрой ненужные программы перед запуском игры и проверь настройки графики.</p>
+</div>
+</div>
+</section>
+
+<section id="about" class="section">
+<h1>ABOUT PC HUB</h1>
+<p class="subtitle">О проекте</p>
+<div class="card">
+<div class="big">PC <span class="red">HUB</span></div>
+<p class="small">PC HUB — проект для диагностики, мониторинга и обслуживания компьютеров. Наша цель — собрать полезные инструменты в одном удобном интерфейсе.</p>
+<p class="small">Версия: 1.0</p>
+<p class="small">Статус: Beta</p>
+</div>
+</section>
+
+<footer>PC HUB © 2026 | GAMING CONTROL CENTER</footer>
+</main>
+</div>
+
+<script>
+function showPage(id,button){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+button.classList.add('active');
+}
+function diagnose(){
+document.getElementById('internet').textContent=navigator.onLine?'ONLINE':'OFFLINE';
+document.getElementById('screenSize').textContent=innerWidth+' × '+innerHeight;
+document.getElementById('browser').textContent=navigator.userAgent.includes('Chrome')?'Chrome / Chromium':navigator.userAgent.includes('Safari')?'Safari':'Другой браузер';
+document.getElementById('diagnosticResult').textContent='Проверка завершена. Базовые функции браузера доступны.';
+}
+function startFPS(){
+const output=document.getElementById('fps');
+const result=document.getElementById('fpsResult');
+let frames=0;
+let start=performance.now();
+function frame(now){
+frames++;
+if(now-start>=1000){
+let value=Math.round(frames*1000/(now-start));
+output.textContent=value;
+result.textContent='Результат теста браузерной анимации: '+value+' FPS';
+return;
+}
+requestAnimationFrame(frame);
+}
+output.textContent='...';
+result.textContent='Идёт тест...';
+requestAnimationFrame(frame);
+}
+diagnose();
+</script>
+</body>
+</html>
